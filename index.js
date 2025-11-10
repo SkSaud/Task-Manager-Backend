@@ -1,10 +1,24 @@
 import express from "express"
 import cors from "cors"   // to handle cross-origin requests. matlab port 3000 or 5173 se backend ko access karne ke liye middleware hai yeah
 import dotenv from "dotenv"
+import mongoose from "mongoose"
+
 
 
 
 dotenv.config();
+
+
+
+mongoose.connect(process.env.MONGO_URI).then(()=>{
+    console.log("Connected to MongoDB");
+}).catch((err)=>{
+    console.log(err);
+    
+})
+
+
+
 const app=express();
 
 //middleware to handle cors
@@ -19,7 +33,7 @@ app.use(cors({
 app.use(express.json());
 
 
-
+ 
 
 
 
