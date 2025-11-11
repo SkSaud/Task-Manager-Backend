@@ -3,6 +3,7 @@ import cors from "cors"   // to handle cross-origin requests. matlab port 3000 o
 import dotenv from "dotenv"
 import mongoose from "mongoose"
 import authRoutes from "./routes/auth.route.js"
+import cookieParser from "cookie-parser"
 
 
 
@@ -29,8 +30,11 @@ app.use(cors({
 }))
 
 
-//middleware to parse JSON bodies
+//middleware to parse JSON  req bodies
 app.use(express.json());
+
+app.use(cookieParser());
+
 
 
  
