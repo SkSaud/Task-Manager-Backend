@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"   // to handle cross-origin requests. matlab port 3000 or 5173 se backend ko access karne ke liye middleware hai yeah
 import dotenv from "dotenv"
 import mongoose from "mongoose"
-
+import authRoutes from "./routes/auth.route.js"
 
 
 
@@ -41,3 +41,6 @@ app.listen(3000,()=>{
     console.log("Server is running on port 3000");
     
 })  
+
+
+app.use("/api/auth",authRoutes);
